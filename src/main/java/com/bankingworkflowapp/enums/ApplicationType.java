@@ -1,4 +1,4 @@
-package com.bankingworkflowapp.utility;
+package com.bankingworkflowapp.enums;
 
 public enum ApplicationType {
 	LOAN,

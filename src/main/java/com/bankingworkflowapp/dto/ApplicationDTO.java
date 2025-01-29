@@ -2,8 +2,8 @@ package com.bankingworkflowapp.dto;
 
 import java.sql.Date;
 
-import com.bankingworkflowapp.utility.ApplicationStatus;
-import com.bankingworkflowapp.utility.ApplicationType;
+import com.bankingworkflowapp.enums.ApplicationStatus;
+import com.bankingworkflowapp.enums.ApplicationType;
 
 public class ApplicationDTO {
 	
