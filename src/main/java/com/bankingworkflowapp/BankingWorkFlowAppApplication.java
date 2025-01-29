@@ -9,5 +9,4 @@ public class BankingWorkFlowAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BankingWorkFlowAppApplication.class, args);
 	}
-
 }
