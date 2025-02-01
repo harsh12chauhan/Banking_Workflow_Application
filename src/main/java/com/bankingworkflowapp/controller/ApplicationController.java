@@ -5,10 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bankingworkflowapp.dto.ApplicationDTO;
+import com.bankingworkflowapp.dto.ApplicationDetailsDTO;
+import com.bankingworkflowapp.entity.Application;
+import com.bankingworkflowapp.entity.ApplicationDetails;
 import com.bankingworkflowapp.exceptions.NoApplicationFoundException;
 import com.bankingworkflowapp.services.ApplicationService;
 
@@ -39,9 +44,15 @@ public class ApplicationController {
 		return applicationService.getAllApplicationByUserIdService(userId);
 	}
 	
-//	@PostMapping("/create")
-//	public ApplicationDTO createApplication(@RequestBody Application application) {
-//		return applicationService.createApplicationService(application);
+	@GetMapping("/details")
+	public List<ApplicationDetailsDTO> getAllApplicationDetails(){
+		return applicationService.getAllApplicationDetailsService();
+	}
+	
+//	@PostMapping("/create/{userid}")
+//	public Boolean createApplication(@PathVariable Integer userid,@RequestBody Application application,@RequestBody ApplicationDetails applicationDetails) {
+//		applicationService.createApplicationService(application,applicationDetails);
+//		return true; 
 //	}
 //	
 //	@PatchMapping("/update/{id}")
