@@ -16,6 +16,10 @@ import ApplicationPdf from './Pages/User/ApplicationPdf'
 //Layouts
 import UserProtectedRoute from './Layouts/UserProtectedRoute'
 import EmpProtectedRoute from './Layouts/EmpProtectedRoute'
+import AdminProtectedRoute from './Layouts/AdminProtectedRoute'
+import DashBoard from './Pages/Admin/DashBoard'
+import AllApplications from './Pages/Admin/AllApplications'
+import AllUsers from './Pages/Admin/AllUsers'
 
 const App = () => {
   return (
@@ -41,6 +45,14 @@ const App = () => {
           </Route>
         </Route>
 
+        <Route element={<AdminProtectedRoute/>}>
+          <Route path="/dashboard" element={<DashBoard/>}>
+            <Route path='applicationlist' element={<AllApplications/>} />
+            <Route path='userlist' element={<AllUsers/>} />
+            <Route path='profile' element={<Profile />} />
+          </Route>
+        </Route>
+        
       </Routes>
     </BrowserRouter>
   )

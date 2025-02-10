@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const ApprovalList = () => {
+const AllApplications = () => {
   const navigate = useNavigate();
   const [applications, setApplications] = useState([]);
 
@@ -35,7 +35,7 @@ const ApprovalList = () => {
 
   return (
     <div className='container mt-4'>
-      <h2>Approval List</h2>
+      <h2>Application List</h2>
       <table className='table table-bordered'>
         <thead>
           <tr>
@@ -74,4 +74,5 @@ const ApprovalList = () => {
     </div>
   );
 };
-export default ApprovalList
+
+export default AllApplications
