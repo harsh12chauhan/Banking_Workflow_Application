@@ -29,19 +29,26 @@ public class UserController {
 		return userService.loginAuthenticationService(data);
 	}
 	
+	
+	//USER ROUTES
+	
 	@PostMapping("/register")
 	public UserDTO userRegistration(@RequestBody User user) {
 		return userService.userRegistrationService(user);
 	}
 	
-	@GetMapping("/")
-	public List<UserDTO> getAllUsers(){
-		return userService.getAllUsersService();
-	}
-	
+
 	@GetMapping("/{userid}")
 	public UserDTO getUserByUserIdService(@PathVariable("userid") Integer userId){
 		return userService.getUserByUserIdService(userId);
+	}
+	
+	
+	//ADMIN ROUTES
+	
+	@GetMapping("/")
+	public List<UserDTO> getAllUsers(){
+		return userService.getAllUsersService();
 	}
 	
 }
