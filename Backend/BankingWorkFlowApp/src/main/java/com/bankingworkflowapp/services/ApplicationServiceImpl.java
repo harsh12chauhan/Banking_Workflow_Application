@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,11 @@ public class ApplicationServiceImpl implements ApplicationService {
 	public ApplicationDTO createApplicationService(Integer userId, LoanDTO loanDetail) {
 	
 		if(loanDetail != null) {
+						
+			int[] numbers = {3, 2, 4};
+	        Random random = new Random();
+	        int randomIndex = random.nextInt(numbers.length); // Get a random index
+	        int randomUserIdForAssignedTo = numbers[randomIndex];
 			
 			Application application = new Application();
 			
@@ -87,6 +93,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 			application.setAnnualIncome(loanDetail.getAnnualIncome());
 			application.setOccupation(loanDetail.getOccupation());
 			application.setIntrestRate(7.0);
+			application.setAssignedTo(randomUserIdForAssignedTo);
 			
 			Application applicationEntity = applicationRepo.save(application);
 			
@@ -95,5 +102,18 @@ public class ApplicationServiceImpl implements ApplicationService {
 			return dto;
 		}
 		return new ApplicationDTO();
+	}
+
+
+	@Override
+	public List<ApplicationDTO> getAllApplicationByAssignedToUserIdService(Integer userId) {
+		List<Application> applictions = applicationRepo.applicationsByAssignToUserId(userId);
+		ArrayList<ApplicationDTO> dtoList = new ArrayList<>();
+		for(Application application:applictions) {
+			ApplicationDTO dto = new ApplicationDTO();
+			BeanUtils.copyProperties(application, dto);
+			dtoList.add(dto);
+		}
+		return dtoList;
 	}
 }

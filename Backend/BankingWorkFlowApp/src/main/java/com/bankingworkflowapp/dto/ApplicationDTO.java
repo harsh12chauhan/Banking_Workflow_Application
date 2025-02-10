@@ -16,6 +16,7 @@ public class ApplicationDTO {
     ApplicationStatus applicationStatus;
     Date submissionDate;
     Date completionDate;
+	Integer assignedTo;
 
     //LOAN ------------>
 	Double loanAmount;
@@ -85,6 +86,12 @@ public class ApplicationDTO {
 	}
 	public void setIntrestRate(Double intrestRate) {
 		this.intrestRate = intrestRate;
+	}
+	public Integer getAssignedTo() {
+		return assignedTo;
+	}
+	public void setAssignedTo(Integer assignedTo) {
+		this.assignedTo = assignedTo;
 	}
 
 }

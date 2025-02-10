@@ -3,7 +3,6 @@ package com.bankingworkflowapp.entity;
 import java.sql.Date;
 
 import com.bankingworkflowapp.enums.ApplicationStatus;
-import com.bankingworkflowapp.enums.ApplicationType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,8 +11,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -37,6 +34,9 @@ public class Application {
 	
 	@Column(name="completiondate")
     Date completionDate;
+	
+	@Column(name="assignto")
+	Integer assignedTo;
 	
 	//LOAN ------------>
 	
@@ -136,4 +136,13 @@ public class Application {
 	public void setIntrestRate(Double intrestRate) {
 		this.intrestRate = intrestRate;
 	}
+
+	public Integer getAssignedTo() {
+		return assignedTo;
+	}
+
+	public void setAssignedTo(Integer assignedTo) {
+		this.assignedTo = assignedTo;
+	}
+	
 }

@@ -55,7 +55,7 @@ const ApprovalList = () => {
                 <td>{app.applicationId}</td>
                 <td>{app.userId}</td>
                 <td>{app.occupation}</td>
-                <td>{app.applicationStatus}</td>
+                <td>{app.applicationStatus}</td>  
                 <td>{app.submissionDate || '-'}</td>
                 <td>{app.completionDate || '-'}</td>
                 <td>

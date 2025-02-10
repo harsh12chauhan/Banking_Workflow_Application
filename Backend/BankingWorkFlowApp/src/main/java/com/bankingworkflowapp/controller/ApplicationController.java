@@ -48,5 +48,9 @@ public class ApplicationController {
 		return applicationService.getApplicationsDetailsService(applicationId);
 	}
 	
+	@GetMapping("/approval/{userId}")
+	public List<ApplicationDTO> getAllApplicationByAssignedToUserId(@PathVariable Integer userId){
+		return applicationService.getAllApplicationByUserIdService(userId);
+	}
 	
 }

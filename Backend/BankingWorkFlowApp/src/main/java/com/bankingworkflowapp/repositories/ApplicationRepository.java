@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.bankingworkflowapp.dto.LoanDTO;
 import com.bankingworkflowapp.entity.Application;
 
 @Repository
@@ -14,4 +13,7 @@ public interface ApplicationRepository extends JpaRepository<Application, Intege
 	
 	@Query("select objApplication from Application objApplication where objApplication.userId=:userId")
 	public List<Application> applicationsByUserId(Integer userId);
+	
+	@Query("select objApplication from Application objApplication where objApplication.assignedTo=:userId")
+	public List<Application> applicationsByAssignToUserId(Integer userId);
 }
