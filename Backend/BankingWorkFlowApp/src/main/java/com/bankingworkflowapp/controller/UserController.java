@@ -51,4 +51,9 @@ public class UserController {
 		return userService.getAllUsersService();
 	}
 	
+	@PostMapping("/register-emp")
+	public UserDTO employeeRegistration(@RequestBody User user) {
+		return userService.employeeRegistrationService(user);
+	}
+	
 }

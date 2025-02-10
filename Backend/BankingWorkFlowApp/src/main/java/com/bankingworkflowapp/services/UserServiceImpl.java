@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.bankingworkflowapp.dto.LoginDataDTO;
 import com.bankingworkflowapp.dto.UserDTO;
 import com.bankingworkflowapp.entity.User;
+import com.bankingworkflowapp.enums.UserRole;
 import com.bankingworkflowapp.exceptions.InvalidUserCredentialsException;
 import com.bankingworkflowapp.exceptions.UserNotFoundException;
 import com.bankingworkflowapp.exceptions.UserWithEmailAlreadyExistException;
@@ -56,6 +57,29 @@ public class UserServiceImpl implements UserService {
 				throw new UserWithEmailAlreadyExistException("User with this email already exist's.");
 			}
 			
+			User newUser = userRepo.save(user);
+			BeanUtils.copyProperties(newUser, dto);
+			return dto;
+		}
+		return dto;
+	}
+	
+	
+	@Override
+	public UserDTO employeeRegistrationService(User user) throws UserWithEmailAlreadyExistException {
+		
+		UserDTO dto = new UserDTO();
+		
+		if(user != null) {
+			
+			String userEmail = user.getEmail();
+			
+			if( userRepo.getUserByEmail(userEmail) != null ) {
+				throw new UserWithEmailAlreadyExistException("User with this email already exist's.");
+			}
+			
+			user.setRole(UserRole.EMPLOYEE);
+						
 			User newUser = userRepo.save(user);
 			BeanUtils.copyProperties(newUser, dto);
 			return dto;

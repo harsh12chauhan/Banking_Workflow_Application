@@ -9,6 +9,7 @@ import com.bankingworkflowapp.entity.User;
 public interface UserService {
 	public String loginAuthenticationService(LoginDataDTO data);
 	public UserDTO userRegistrationService(User user);	
+	public UserDTO employeeRegistrationService(User user);	
 	public UserDTO getUserByUserIdService(Integer id);
 	public List<UserDTO> getAllUsersService();
 }
