@@ -50,7 +50,7 @@ public class ApplicationController {
 	
 	@GetMapping("/approval/{userId}")
 	public List<ApplicationDTO> getAllApplicationByAssignedToUserId(@PathVariable Integer userId){
-		return applicationService.getAllApplicationByUserIdService(userId);
+		return applicationService.getAllApplicationByAssignedToUserIdService(userId);
 	}
 	
 }
