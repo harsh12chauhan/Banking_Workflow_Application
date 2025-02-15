@@ -1,6 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+//Layouts
+import UserProtectedRoute from './Layouts/UserProtectedRoute'
+import EmpProtectedRoute from './Layouts/EmpProtectedRoute'
+import AdminProtectedRoute from './Layouts/AdminProtectedRoute'
+
+
 //Pages
 import Login from './Pages/Login'
 import Register from './Pages/Register'
@@ -12,14 +18,11 @@ import EmpHome from './Pages/Employee/EmpHome'
 import ApprovalList from './Pages/Employee/ApprovalList'
 import ApplicationDetails from './Pages/ApplicationDetails'
 import ApplicationPdf from './Pages/User/ApplicationPdf'
-
-//Layouts
-import UserProtectedRoute from './Layouts/UserProtectedRoute'
-import EmpProtectedRoute from './Layouts/EmpProtectedRoute'
-import AdminProtectedRoute from './Layouts/AdminProtectedRoute'
 import DashBoard from './Pages/Admin/DashBoard'
 import AllApplications from './Pages/Admin/AllApplications'
 import AllUsers from './Pages/Admin/AllUsers'
+import NotFound from './Pages/NotFound'
+
 
 const App = () => {
   return (
@@ -27,6 +30,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path='*' element={<NotFound/>}/>
 
         <Route element={<UserProtectedRoute/>}>
           <Route path="/home" element={<Home />}>
